@@ -8,13 +8,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-public class HomeFragment extends Fragment {
-    public HomeFragment() {
+public class CategoriasFragment extends Fragment {
+    public CategoriasFragment() {
         // Required empty public constructor
     }
 
-    public static HomeFragment newInstance(String param1, String param2) {
-        HomeFragment fragment = new HomeFragment();
+    public static CategoriasFragment newInstance(String param1, String param2) {
+        CategoriasFragment fragment = new CategoriasFragment();
         return fragment;
     }
 
@@ -27,6 +27,6 @@ public class HomeFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_home, container, false);
+        return inflater.inflate(R.layout.fragment_categorias, container, false);
     }
 }
