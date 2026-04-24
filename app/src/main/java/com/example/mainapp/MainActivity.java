@@ -1,18 +1,25 @@
 package com.example.mainapp;
 
 import android.os.Bundle;
+import android.view.MenuItem;
+import android.view.View;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+import androidx.fragment.app.Fragment;
 
 import com.example.mainapp.dataBase.AppDataBase;
 import com.example.mainapp.entitys.CategoriasEntitys;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.navigation.NavigationBarView;
 
 public class MainActivity extends AppCompatActivity {
+    private BottomNavigationView bottomNavigationView;
     private CategoriasEntitys categoriasEntitys;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,6 +30,33 @@ public class MainActivity extends AppCompatActivity {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
+        });
+
+        this.bottomNavigationView = findViewById(R.id.menuButton);
+
+        if(savedInstanceState == null){
+            cambiarFragmnto(new HomeFragment());
+        }
+
+        bottomNavigationView.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+                menuItem.setCheckable(true);
+                if (menuItem.getItemId() == R.id.home){
+                    cambiarFragmnto(new HomeFragment());
+                    return true;
+                }else if (menuItem.getItemId() == R.id.personas){
+                    cambiarFragmnto(new PersonasFragment());
+                    return true;
+                }else if (menuItem.getItemId() == R.id.articulos){
+                    cambiarFragmnto(new ArticulosFragment());
+                    return true;
+                }else if (menuItem.getItemId() == R.id.prestamos){
+                    cambiarFragmnto(new PersonasFragment());
+                    return true;
+                }
+                return false;
+            }
         });
 
         /*categoriasEntitys = new CategoriasEntitys(1,"Cargadores");
@@ -41,5 +75,12 @@ public class MainActivity extends AppCompatActivity {
                 });
             }
         });*/
+    }
+
+    private void cambiarFragmnto(Fragment fragment){
+        getSupportFragmentManager()
+                .beginTransaction()
+                .replace(R.id.containerMain, fragment)
+                .commit();
     }
 }
