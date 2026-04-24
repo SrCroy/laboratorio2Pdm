@@ -56,7 +56,7 @@ public class MainActivity extends AppCompatActivity {
                     cambiarFragmnto(new ArticulosFragment());
                     return true;
                 }else if (menuItem.getItemId() == R.id.prestamos){
-                    cambiarFragmnto(new PersonasFragment());
+                    cambiarFragmnto(new PrestamoFragment());
                     return true;
                 }
                 return false;
