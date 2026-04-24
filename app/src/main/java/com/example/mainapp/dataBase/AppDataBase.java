@@ -46,7 +46,9 @@ public abstract class AppDataBase extends RoomDatabase {
                             context.getApplicationContext(),
                             AppDataBase.class,
                             "dbLaboratorio"
-                    ).build();
+                            )
+                            .allowMainThreadQueries()
+                            .build();
                 }
             }
         }
