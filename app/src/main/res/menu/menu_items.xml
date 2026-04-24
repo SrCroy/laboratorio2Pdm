@@ -1,9 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
+        android:id="@+id/prestamos"
+        android:icon="@drawable/prestamo"
+        android:title="Prestamos" />
+    <item
         android:id="@+id/categorias"
         android:icon="@drawable/outline_category_search_24"
-        android:title="Home" />
+        android:title="Categoria" />
     <item
         android:id="@+id/personas"
         android:icon="@drawable/personas"
@@ -12,8 +16,4 @@
         android:id="@+id/articulos"
         android:icon="@drawable/categoria"
         android:title="Artículos" />
-    <item
-        android:id="@+id/prestamos"
-        android:icon="@drawable/prestamo"
-        android:title="Prestamos" />
 </menu>
