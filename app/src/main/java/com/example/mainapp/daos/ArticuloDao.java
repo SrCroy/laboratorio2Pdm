@@ -26,4 +26,7 @@ public interface ArticuloDao {
 
     @Query("SELECT * FROM tblArticulos WHERE estadoArticulo = 0")
     List<ArticulosEntity> obtenerDisponible();
+
+    @Query("SELECT * FROM tblArticulos WHERE idArticulo = :id")
+    ArticulosEntity obtenerPorId(int id);
 }

@@ -6,6 +6,7 @@ import androidx.room.Insert;
 import androidx.room.Query;
 import androidx.room.Update;
 
+import com.example.mainapp.entitys.PrestamoConNombres;
 import com.example.mainapp.entitys.PrestamoEntity;
 
 import java.util.List;
@@ -23,4 +24,14 @@ public interface PrestamoDao {
 
     @Query("SELECT * FROM tblPrestamo WHERE devuelto = 1")
     List<PrestamoEntity> obtenerHistorial();
+
+    @Update
+    void actualizarPrestamo(PrestamoEntity prestamo);
+
+    @Query("SELECT p.*, a.nombreArticulo as nombreArticulo, per.nombrePersona as nombrePersona " +
+            "FROM tblPrestamo p " +
+            "INNER JOIN tblArticulos a ON p.idArticulo = a.idArticulo " +
+            "INNER JOIN tblPersonas per ON p.idPersona = per.idPersona " +
+            "WHERE p.devuelto = :estado")
+    List<PrestamoConNombres> obtenerPrestamosPorEstado(boolean estado);
 }
