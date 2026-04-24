@@ -1,9 +1,30 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <!-- Base application theme. -->
     <style name="Base.Theme.MainApp" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+        <item name="colorPrimary">@color/primary_ues</item>
+        <item name="colorOnPrimary">@color/text_on_primary</item>
+        <item name="colorPrimaryContainer">@color/surface_chip</item>
+        <item name="colorOnPrimaryContainer">@color/primary_ues</item>
+        <item name="colorSecondary">@color/secondary_ues</item>
+        <item name="colorOnSecondary">@color/text_on_secondary</item>
+        <item name="colorSecondaryContainer">@color/surface_chip</item>
+        <item name="colorOnSecondaryContainer">@color/secondary_ues</item>
+        <item name="android:windowBackground">@color/surface_bg</item>
+        <item name="colorSurface">@color/surface_card</item>
+        <item name="colorOnSurface">@color/text_primary</item>
+        <item name="colorSurfaceVariant">@color/surface_chip</item>
+        <item name="colorOnSurfaceVariant">@color/text_secondary</item>
+        <item name="colorOutline">@color/surface_stroke</item>
+        <item name="colorError">@color/state_error</item>
+        <item name="colorOnError">@color/white</item>
+        <item name="bottomNavigationStyle">@style/Widget.App.BottomNavigationView</item>
     </style>
 
     <style name="Theme.MainApp" parent="Base.Theme.MainApp" />
+
+    <style name="Widget.App.BottomNavigationView"
+        parent="Widget.Material3.BottomNavigationView">
+        <item name="backgroundTint">@color/surface_card</item>
+        <item name="itemIconTint">@color/primary_ues</item>
+        <item name="itemTextColor">@color/primary_ues</item>
+    </style>
 </resources>

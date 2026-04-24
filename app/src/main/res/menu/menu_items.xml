@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/home"
+        android:enabled="true"
+        android:icon="@drawable/personas"
+        android:title="Home" />
+
+    <item
+        android:id="@+id/articulos"
+        android:enabled="true"
+        android:icon="@drawable/categoria"
+        android:title="Artículos" />
+
+    <item
+        android:id="@+id/categoria"
+        android:enabled="true"
+        android:icon="@drawable/prestamo"
+        android:title="Categorías" />
+</menu>

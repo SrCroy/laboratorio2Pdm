@@ -1,5 +1,6 @@
 plugins {
     alias(libs.plugins.android.application)
+    id 'androidx.room'
 }
 
 android {
@@ -8,6 +9,10 @@ android {
         version = release(36) {
             minorApiLevel = 1
         }
+    }
+
+    room {
+        schemaDirectory "$projectDir/schemas"
     }
 
     defaultConfig {
@@ -40,4 +45,12 @@ dependencies {
     testImplementation libs.junit
     androidTestImplementation libs.ext.junit
     androidTestImplementation libs.espresso.core
+    implementation "androidx.room:room-runtime-android:2.8.4"
+    implementation "androidx.room:room-compiler:2.8.4"
+}
+
+configurations {
+    all {
+        exclude group: 'com.intellij', module: 'annotations'
+    }
 }
