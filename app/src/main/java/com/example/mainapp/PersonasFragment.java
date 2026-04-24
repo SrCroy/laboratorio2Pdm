@@ -13,6 +13,8 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import com.example.mainapp.adapters.PersonasAdapter;
 import com.example.mainapp.dataBase.AppDataBase;
 import com.example.mainapp.entitys.PersonasEntity;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;

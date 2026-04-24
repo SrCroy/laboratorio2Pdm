@@ -1,6 +1,7 @@
 package com.example.mainapp.daos;
 
 import androidx.room.Dao;
+import androidx.room.Delete;
 import androidx.room.Insert;
 import androidx.room.Query;
 import androidx.room.Update;
@@ -16,6 +17,9 @@ public interface ArticuloDao {
 
     @Update
     void editarCategoria(ArticulosEntity articulosEntity);
+
+    @Delete
+    void eliminarCategoria(ArticulosEntity articulosEntity);
 
     @Query("SELECT * FROM tblArticulos")
     List<ArticulosEntity> obtenerCategoria();
