@@ -1,6 +1,7 @@
 package com.example.mainapp;
 
 import android.os.Bundle;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -8,8 +9,11 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
-public class MainActivity extends AppCompatActivity {
+import com.example.mainapp.dataBase.AppDataBase;
+import com.example.mainapp.entitys.CategoriasEntitys;
 
+public class MainActivity extends AppCompatActivity {
+    private CategoriasEntitys categoriasEntitys;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -20,5 +24,22 @@ public class MainActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+
+        /*categoriasEntitys = new CategoriasEntitys(1,"Cargadores");
+
+        AppDataBase appDataBase = AppDataBase.getInstance(getApplicationContext());
+
+        appDataBase.dataBaseWriteExecutor.execute(new Runnable() {
+            @Override
+            public void run() {
+                appDataBase.categoriasDao().insertarCategoria(categoriasEntitys);
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        Toast.makeText(MainActivity.this, "Dato ingresado", Toast.LENGTH_SHORT).show();
+                    }
+                });
+            }
+        });*/
     }
 }
