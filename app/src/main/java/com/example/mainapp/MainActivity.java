@@ -18,6 +18,8 @@ import com.example.mainapp.entitys.CategoriasEntitys;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
 
+import java.util.List;
+
 public class MainActivity extends AppCompatActivity {
     private BottomNavigationView bottomNavigationView;
     private CategoriasEntitys categoriasEntitys;
@@ -31,6 +33,8 @@ public class MainActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+
+        cargarCategorias();
 
         this.bottomNavigationView = findViewById(R.id.menuButton);
 
@@ -82,5 +86,18 @@ public class MainActivity extends AppCompatActivity {
                 .beginTransaction()
                 .replace(R.id.containerMain, fragment)
                 .commit();
+    }
+
+    private void cargarCategorias() {
+        AppDataBase db = AppDataBase.getInstance(this);
+        List<CategoriasEntitys> lista = db.categoriasDao().obtenerCategorias();
+
+        if (lista.isEmpty()) {
+            db.categoriasDao().insertarCategoria(new CategoriasEntitys(0, "Electrónica"));
+            db.categoriasDao().insertarCategoria(new CategoriasEntitys(0, "Herramientas"));
+            db.categoriasDao().insertarCategoria(new CategoriasEntitys(0, "Mobiliario"));
+            db.categoriasDao().insertarCategoria(new CategoriasEntitys(0, "Papelería"));
+            db.categoriasDao().insertarCategoria(new CategoriasEntitys(0, "Libros"));
+        }
     }
 }
